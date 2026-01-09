@@ -5,6 +5,8 @@ const archivoPanel = document.getElementById('archivoPanel');
 
 archivoBtn.addEventListener('click', () => {
     archivoPanel.classList.toggle('open');
+    archivoPanel.scrollTop = 0;
+    /*document.body.classList.toggle("archivo-open"); NUEVO?*/
     
     /*vinculado a cambio de color boton al abrir panel
     archivoPanel.classList.toggle("is-open"); 
@@ -16,5 +18,3 @@ archivoPanel.querySelectorAll('a').forEach(link => {
     archivoPanel.classList.remove('open');
   });
 });
-
-

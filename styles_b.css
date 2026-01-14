@@ -307,7 +307,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
                   font-size: 0.8rem;
                   font-weight:500;
                   margin-top: 1rem;
-                  margin-right: 5rem ;
+                  max-width: 45%;
                 }
 
                 /*.mega-gif {
@@ -315,9 +315,22 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
                   height: auto;
                   display: block;
                 }*/
-                
+  
+          @media (max-width: 767.98px) {
+
+          .esencial {
+            margin-top: 0rem; /* opcional, suele quedar mejor en móvil */
+          }
+
+          .esencial p {
+            max-width: 100%; /* ocupa toda la columna */
+          }
+        }              
 
 
+      
+
+/*row0*/
 .concepto-img { /*si pones zoom creo que no la usas*/
     margin-top: 0rem;
     width:100%;
@@ -344,62 +357,64 @@ z-index: 10;
           /*margin-right: 5rem;*/
         }
 
+/*row1*/
 
-
-.proceso-biblio {
+.proceso1b {
   margin-top: 0rem;
+  line-height: 1.4;
 }
-      .proceso-biblio h1 {
+      .proceso1b h1 {
         font-size: 0.8rem;
         font-weight: bold;
 
       }
-      .proceso-biblio p {
+      .proceso1b p {
         font-size: 0.8rem;
         font-weight: 500;
         margin-top: 1.2rem;
+        max-width: 85%;
       }
-      .proceso-biblio img {
-        max-width: 100%;
+      .proceso1b img {
+        max-width: 85%;
       }
-
-.proceso-explorar {
+.proceso1c {
   max-width: 100%;
 }    
-      .proceso-explorar img {
+      .proceso1c img {
         max-width: 100%;
         margin-right: 4.2rem;
-      }   
-
-      .idear-biblio img {
-        max-width: 100%;
       }
 
-.idear-expl {
-  font-size: 0.6rem;
-  font-weight: 500;
-  margin-top: 1.2rem;
-  max-width: 50%;
-  margin-top: 8rem;
-  margin-left: 3rem;
+
+/*row2*/
+
+.proceso2b img {
+    max-width: 85%;
+  }
+.proceso2b-txt {
+  margin-top:0rem;
+  line-height: 1.4;
 }
-.idear-txt {
-  margin-top:2rem;
-}
-      .idear-txt h1 {
+      .proceso2b-txt h1 {
         font-size: 0.8rem;
         font-weight: bold;
-
       }
-      .idear-txt p {
+      .proceso2b-txt p {
         font-size: 0.8rem;
         font-weight: 500;
         margin-top: 1.2rem;
+        max-width: 85%;
       }
 
-
-
-
+.proceso2c img {
+    max-width: 100%;
+  }
+.piefoto2c {
+  font-size: 0.6rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  max-width: 100%;
+}
 
 
 

@@ -17,24 +17,26 @@ html, body {
   position: fixed; /*hay que fijar navbar para que no desaparezca con scroll, te fastidia el efecto*/
   z-index: 1000; /*z-index a lo bestia porque al poner fixed los 
   botones dejaban de funcionar!! No se si son trampas pero funciona, YUPIIIIIIIIIII*/
+   gap: 1.4rem; /*separación botones*/
+
 }
 
       .nav-apartados .nav-link{
         border: none;
         padding-left: 3rem;
         padding-top: 2rem;
+      
         font-family: Helvetica, sans-serif;
         font-size: 0.8rem;
         font-weight: 600;
         color: black;
-        opacity: 0.6;
+        /*opacity: 0.6;*/
       }
 
       .nav-apartados .nav-link.active {
         opacity: 1;
         background: none;
       }
-
 
       #bio {
         position: fixed;
@@ -94,7 +96,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
     z-index: auto !important;
     margin-bottom: 1rem;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 0.7rem;
     justify-content: center;
   }
   .tab-content { /*agrupa archivo y biio, es bootstrap*/
@@ -260,15 +262,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
 
 
 
-                  
-
-                                 
-
-
-
-
-
-
+      
 
 
 /*proyectos*/
@@ -284,7 +278,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
   margin-top: 2.5rem;
 }
 .categoriza p {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: 500;
   opacity: 0.6;
 }
@@ -295,7 +289,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
   height: auto;
 }
 .piefoto {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: 500;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
@@ -393,7 +387,7 @@ z-index: 10;
 
 
 
-
+/*zoom imagenes*/
 .zoom-img {
   cursor: pointer;
   transition: transform 0.3s ease;

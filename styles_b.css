@@ -76,8 +76,9 @@ html, body {
         color: #000000;
       }
 
-      #archivo a :hover {
-        opacity: 0.6;
+      #archivo ul :hover { /*CON a no te funcioanaba, acuerdate para otras listas*/
+        /*opacity: 0.6;*/
+        color: rgb(44, 144, 35);
       }
 
 
@@ -158,14 +159,16 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
         max-width: 300px;
       }
       .footer-info {
-        margin-top: 0.5rem;
+        margin-top: 2rem;
       }
       .footer-info a {
         color: inherit;
         text-decoration: none;
       }
       .footer-info a:hover {
-        opacity: 0.6;
+        /*opacity: 0.6;*/
+        color: rgb(44, 144, 35);
+
       }
       .footer-guay {
         margin-top: 0.5rem;
@@ -330,7 +333,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
 
       
 
-/*row0*/
+/*row0 vale para conceptos, solución lúdico y limitaciones nodo*/
 .concepto-img { /*si pones zoom creo que no la usas*/
     margin-top: 0rem;
     width:100%;
@@ -390,9 +393,7 @@ font-weight: bold;
         justify-content: left;
       }
 
-
-
-
+/*en concepto nodo...*/
 
 
 
@@ -464,10 +465,105 @@ font-weight: bold;
 
 
 
+   
+
+/*nav alternato!!*/
+.nav-alternativo {
+  border-bottom: none;
+  margin-bottom: 1rem;  /* espacio debajo del nav */
+  padding-left: 0;       /* ajusta padding horizontal del contenedor si quieres */
+
+}
+      .nav-alternativo .nav-link{
+        border: none;
+        padding-left: 3rem;
+        padding-top: 2rem;
+      
+        font-family: Helvetica, sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: black;
+        /*opacity: 0.6;*/
+      }
+
+      .nav-alternativo .nav-link.active {
+        opacity: 1;
+        background: none;
+      }
 
 
 
-/*imagenes se sobreponen, efecto de slider automático que no es slider porque NO me funcionan*/
+/*zoom imagenes*/
+.zoom-img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.zoom-img:hover {
+  transform: scale(1.22); /*cuanto quieres que escale?*/
+}
+ /*esto no te está funcionando*/
+      #overlay {
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        z-index: 200001; /* imagen encima del blur por narices*/
+      }
+
+      #overlay-img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 5px;
+        box-shadow: 0 0 20px black;
+      }
+
+      #close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+      }*/
+
+
+/* en proceso*/
+.ext-proyectoo body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+    .en-proceso {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+    }
+
+    .en-proceso img {
+        display: block;
+        max-width: 10vw; /*así es relativo a ventana*/
+        height: auto;
+    }
+
+    .en-proceso p {
+        justify-self: center;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-top: 0.2rem;
+    }
+
+
+
+
+/* imagenes se sobreponen, efecto de slider automático que no es slider porque NO me funcionan*/
   .fade-stack {
     position: relative;
     width: 100%;
@@ -502,85 +598,6 @@ font-weight: bold;
     40%  { opacity: 0; }
     100% { opacity: 0; }
   }
-
-
-
-
-
-
-
-
-
-
-
-      
-
-/*nav alternato!!*/
-.nav-alternativo {
-  border-bottom: none;
-  margin-bottom: 1rem;  /* espacio debajo del nav */
-  padding-left: 0;       /* ajusta padding horizontal del contenedor si quieres */
-
-}
-      .nav-alternativo .nav-link{
-        border: none;
-        padding-left: 3rem;
-        padding-top: 2rem;
-      
-        font-family: Helvetica, sans-serif;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: black;
-        /*opacity: 0.6;*/
-      }
-
-      .nav-alternativo .nav-link.active {
-        opacity: 1;
-        background: none;
-      }
-
-
-
-/*zoom imagenes*/
-.zoom-img {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.zoom-img:hover {
-  transform: scale(1.25); /*cuanto quieres que escale?*/
-}
-
-#overlay {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 200001; /* imagen encima del blur por narices */
-}
-
-#overlay-img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 5px;
-  box-shadow: 0 0 20px black;
-}
-
-#close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-}
-
-
-
 
 
 

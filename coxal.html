@@ -23,23 +23,25 @@
     
     cambia orden y tamaño según breakpoint (sm, md, lg, etc.) + si no especificas nada para movil, las columnas se apilan.
     col-12 col-md-4 order-1 order-md-2"
-            col-12 → en móvil ocupa todo el ancho
-            col-md-4 → desde md (≥768px) ocupa 4/12
-            order-1 → en móvil va primero
-            order-md-2 → en desktop pasa a segundo lugar -->
+            col-12 en móvil ocupa todo el ancho
+            col-md-4 desde md (≥768px) ocupa 4/12
+            order-1 en móvil va primero
+            order-md-2 en desktop pasa a segundo lugar 
+
+    gx controla el espacio horizontal entre columnas, PERO TU NECESITAS LOS MARGENES -->
     
-    <ul class="nav nav-tabs nav-apartados">
+    <ul class="nav-alternativo">
         <li class="nav-item"><a href="index_b.html" class="nav-link">garbo</a></li>
     </ul>
      
-     
-    <div class="container my-5">
+    
+    <div class="container-fluid my-5 px-3"> <!--px-3 reduce padding horizontal interno de container, ESO era lo que te hacía el megamargen-->
 
             <!-- primera fila con dos columnas, una estrecha y otra más ancha con aire -->
-            <div class="row align-items-start" id="intro">
+            <div class="row g-2" id="intro">
 
                 <!-- columna pequeña (imagen) quedrá arriba en movil-->
-                <div class="col-12 col-md-4 order-1 order-md-2">
+                <div class="col-12 col-md-4 order-1 order-md-2"> <!--esto no influye en margen-->
                         <img src="img2/2_p.jpg" alt="Pieza Coxal" class="mega-img">
                         <div class="piefoto">
                             XAL [Pieza n°3]<br>
@@ -82,7 +84,7 @@
 
     
 <!--concepto-->
-    <div class="container my-5" Id="concepto">
+    <div class="container-fluid my-5 px-3" Id="concepto">
             <div class="row"> <!-- las dos-->
                 
                 <div class="col-12 col-md-4">
@@ -118,7 +120,7 @@
 
 
 
-    <div class="container my-5" id="proceso">
+    <div class="container-fluid my-5 px-3" id="proceso">
         <div class="row align-items-start" >
 
             <div class="col-12 col-md-4 order-1 order-md-2">

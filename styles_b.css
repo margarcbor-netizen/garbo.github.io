@@ -12,15 +12,15 @@ html, body {
 }
 
 .nav-apartados {
+  position: fixed; /*hay que fijar navbar para que no desaparezca con scroll, te fastidia el efecto*/
   border-bottom: none; /*si lo quitas sale linea fea booptstrap*/
   margin-bottom: 1rem;
-  position: fixed; /*hay que fijar navbar para que no desaparezca con scroll, te fastidia el efecto*/
   z-index: 1000; /*z-index a lo bestia porque al poner fixed los 
   botones dejaban de funcionar!! No se si son trampas pero funciona, YUPIIIIIIIIIII*/
-   gap: 1.4rem; /*separación botones*/
+  
+  gap: 1.4rem; /*separación botones*/
 
 }
-
       .nav-apartados .nav-link{
         border: none;
         padding-left: 3rem;
@@ -267,12 +267,32 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
 
 /*proyectos*/
 
-.ext-royecto {
-  font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.4;
-  overflow-y: auto;   /*ojo, SIN esto no hay barrita con scroll */ 
+
+
+.nav-alternativo {
+  border-bottom: none;
+  margin-bottom: 1rem;  /* espacio debajo del nav */
+  padding-left: 0;       /* ajusta padding horizontal del contenedor si quieres */
+
 }
-  
+      .nav-alternativo .nav-link{
+        border: none;
+        padding-left: 3rem;
+        padding-top: 2rem;
+      
+        font-family: Helvetica, sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: black;
+        /*opacity: 0.6;*/
+      }
+
+      .nav-alternativo .nav-link.active {
+        opacity: 1;
+        background: none;
+      }
+
+
 
 #intro {
   margin-top: 2.5rem;
@@ -328,7 +348,6 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
 .concepto-img { /*si pones zoom creo que no la usas*/
     margin-top: 0rem;
     width:100%;
-    height: auto;
     position: relative;
 }
 .concepto-tx {
@@ -357,6 +376,7 @@ z-index: 10;
 
 .proceso-biblio {
   margin-top: 0rem;
+  margin-bottom: 15rem;
 }
       .proceso-biblio p {
         font-size: 0.8rem;
@@ -374,7 +394,6 @@ z-index: 10;
 }    
       .proceso-explorar img {
         max-width: 100%;
-
       }   
 
 

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" > <!--link .css bootstrap-->
+<link rel="stylesheet" href="styles_b.css">
+</head >
+
+<body class= "ext-proyecto" id=Coxal>
+
+    <!--<nav class="navbar" id="navP">
+        <a href="index.html" class="volver-inicio">garbo</a> enlace para volver a principal
+        <button id="archivoBtn">vuelta al archivo</button>  boton activa pestaña que desliza, NO quieres enlace a nueva página
+    </nav> -->
+
+    <!-- chuleta bootstrap = sistema basado en 12 columnas
+    .container define el ancho máximo y los márgenes laterales.
+    .row crea una fila horizontal.
+    .col-* divide esa fila en columnas. 
+    col-6 → ocupa 6/12 = la mitad col-8 + col-4 → una ancha y una estrecha (como tu referencia) col-4 col-4 col-4 → tres columnas iguales.
+    
+    cambia orden y tamaño según breakpoint (sm, md, lg, etc.) + si no especificas nada para movil, las columnas se apilan.
+    col-12 col-md-4 order-1 order-md-2"
+            col-12 en móvil ocupa todo el ancho
+            col-md-4 desde md (≥768px) ocupa 4/12
+            order-1 en móvil va primero
+            order-md-2 en desktop pasa a segundo lugar  -->
+    
+    <ul class="nav-alternativo">
+        <li class="nav-item"><a href="index_b.html" class="nav-link">garbo</a></li>
+    </ul>
+     
+    
+    <div class="container-fluid my-5 px-3"> <!--px-3 reduce padding horizontal interno de container, ESO era lo que te hacía el megamargen-->
+
+            <!-- primera fila con dos columnas, una estrecha y otra más ancha con aire -->
+            <div class="row g-1" id="intro">  <!--g ayuda a margen entre columnas!! -->
+
+                <!-- columna pequeña (imagen) quedrá arriba en movil-->
+                <div class="col-12 col-md-4 order-1 order-md-2"> <!--esto no influye en margen-->
+                        <img src="img2/ludico/portada_ludico.jpg" alt="sobresysolapas" class="mega-img">
+                        <div class="piefoto">
+                            ensamblaje de cubos<br>
+                            mediante solapas y sobres sonobe
+                        </div>
+                </div>
+
+                <!-- columna grande (texto) -->
+                <div class="col-12 col-md-8 order-2 order-md-1 d-flex flex-column align-items-start text-start" > 
+                    <div class="categoriza">
+                        <p>
+                            LÚDICO <br>
+                            tipología / objeto <br>
+                            Cliente/Dior <br>
+                            junio de 2025 <br>
+                        </p>
+                    </div>
+                    
+                    <div class="esencial"> 
+                        <h1>LÚDICO, un <br>
+                         sistema expositivo modular<br>
+                        </h1>
+
+                        <p>
+                            Pretendiendo abordar la insostenibilidad del diseño expositivo para eventos
+                            efímeros, se da una nueva vida a las lonas publicitarias de la Maison Dior.
+                            ¿cómo? aplicando el origami tradicional como estrategia constructiva
+                            para generar un sistema modular de volúmenes que se adaptan a las
+                            necesidades emergentes.
+                        </p>
+                        
+                    </div>
+                </div>
+
+    </div>
+
+    <!--concepto-->
+    <div class="container-fluid my-5 px-3" id="proceso1">
+        <div class="row align-items-start" >
+
+            <div class="col-12 col-md-4">
+                <div class="problema1a">
+                    <h1>el problema</h1>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8">
+                <div class="problema1b"> 
+                    <div class="problema1b-txt">
+                        <h1>en los eventos efímeros de Dior</h1>
+                        <p> 
+                            la escasa funcionalidad, corta vida útil y constante renovación 
+                            de los elementos expositivos alimenta un ciclo insostenible de uso 
+                            y desperdicio de material que la Maison almacena en lugar de exprimir toda su vida útil.
+                        </p>
+                        
+                        <div>
+                            <img src="img2/ludico/problema/problemas.jpg" alt="problemas" class="zoom-img">
+                            <!--<div id="overlay"><span id="close">&times;</span><img id="overlay-img" src="./img2/ludico/problema/problemas.jpg"></div>-->
+                        </div>
+
+                        <h1>en una industria en la que la sostenibilidad <br>
+                            es valor y estatus</h1>
+                        <p> 
+                            la renovación cíclica de las lonas publicitarias
+                            genera un flujo entrante de material que se “soluciona” con 
+                            un almacenaje y destrucción de alto impacto medioambiental
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+     <!--concepto-->
+    <div class="container-fluid my-5 px-3" Id="solución">
+            <div class="row"> <!-- las dos-->
+                
+                <div class="col-12 col-md-4">
+                    <div class="solución-aire"> 
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4"> <!-- mide 450-->
+                    <img src="./img2/ludico/solución.jpg" alt="solución" class="zoom-img" width="400px">
+                    <div id="overlay"><span id="close">&times;</span><img id="overlay-img" src="./img2/ludico/solución.jpg"></div>
+                </div>
+
+                <div class="col-12 col-md-4"> <!--8+4=12-->
+                    <div class="concepto-tx"> 
+                        <h1> la solución</h1>
+                        <p> 
+                            crear unidades de lona plegada que se ensamblan para generar 
+                            policubos altamente compatibles y reconfigurables: una dinámica constructiva integral  
+                            que se adapta a las necesidades emergentes
+                        </p>
+
+                        <p> 
+                            redescubrir material <br>
+                            modularidad <br>
+                            versatilidad = durabilidad <br>
+                            vínculo con identidad <br>
+                        </p>
+                    </div>
+                </div>
+
+                
+            </div>
+    </div>
+    
+    
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="modal" class="modal"> <!--esto es para zoom img-->
+        <span class="close">&times;</span><img class="modal-content" id="modal-img">
+</div> 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"> </script> <!--link .js bootstrap-->
+    <script src="script.js"></script> 
+</body>
+</html>

@@ -35,44 +35,48 @@ html, body {
         background: none;
       }
 
-      #archivo {
-        line-height: 1.4;
+
+      #bio {
+        position: fixed;
+        margin-top: 2rem;
+        padding: 3rem;
+        max-width: 300px; /*si pones solo widht te cargas el responsive*/
+
+        font-family: Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 0.6rem;
+        color: black;
+
+        line-height: 1.5;
+        }
+
+      ul { /*quitar bullet points terribles*/
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
       }
-      
+
+      #archivo {
+        position: fixed;
+        margin-top: 2rem;
+        padding: 3rem;
+
+        font-family: Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 0.6rem;
+      }
+
+      #archivo a {
+        line-height: 1.8;
+        text-decoration: none;
+        color: #000000;
+      }
+
+      #archivo a :hover {
+        opacity: 0.6;
+      }
 
 
-
-#bio {
-  position: fixed;
-  margin-top: 2rem;
-  padding: 3rem;
-  max-width: 300px; /*si pones solo widht te cargas el responsive*/
-
-  font-family: Helvetica, sans-serif;
-  font-weight: 600;
-  font-size: 0.6rem;
-  color: black;
-
-  line-height: 1.5;
-  }
-
-ul { /*quitar bullet points terribles*/
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-#archivo {
-  position: fixed;
-  margin-top: 2rem;
-  padding: 3rem;
-
-  font-family: Helvetica, sans-serif;
-  font-weight: 600;
-  font-size: 0.6rem;
-  color: black;
-  text-decoration: none;
-}
 
 
 /*En desktop, nav permanece fijo (position: fixed) para que no desaparezca al hacer scroll. 
@@ -131,9 +135,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
   flex-direction: column;
   /*width: 20rem;  NO, impide cambio responsive*/ 
   /*position: fixed; NO, entonces impide que se apile*/ 
-  
 }
-
       /*footer*/             
       .columna-aire footer {
         position: fixed; /* no permite el responsive, PERO fija abajo. Con media queries o como se diga lo adaptas*/
@@ -168,23 +170,25 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
 
 
 .columna-proyectos {
-  position: relative;       /* se posiciona respecto al body */
+  position: relative; /* respecto a body */
+  align-content: end;
   /*padding-top: 2rem; se lo puedes quitar porque está el del nav*/
   margin-right:auto; /* ocupa hasta el borde derecho */
   margin-top: 4rem;
-  overflow-y: auto; /* esta SI scrollea */
-  align-content: end;
+
+  overflow-y: auto; /* esta SI scrollea... y al final la otra también y has hecho una jugarreta, lo que toca  */
 
   font-family: Helvetica, sans-serif;
   color: black;
   }
       .proyecto {
-        margin-bottom: 6rem;
+        margin-bottom: 3.5rem;
       }
 
       .proyecto-numero {
-        font-size: 0.8rem;
-        font-weight: 500;
+        font-size: 0.7rem;
+        font-weight:bold;
+
       }
 
       .archivo-texto {  /*contiene texto*/
@@ -192,11 +196,12 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
           display: flex; /* convierte el contenedor en flex */
           flex-direction: column; /* mantiene texto en columna, pero no te deja mover la flecha*/
           
+          font-family: Helvetica, sans-serif; 
           height: 100%; /* opcional: para ocupar todo el alto del artículo */
           position: relative;
       }
                 .archivo-texto h2 {
-                font-size:0.6rem;
+                font-size:0.7rem;
                 font-weight:bold;
                 line-height:1.4;
                 margin-bottom: 0.5rem;
@@ -206,7 +211,7 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
                 line-height:1.4;
                 opacity:0.7;
                 font-weight: bold;
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem; /*asi hay el mismo de la flecha al parrafo que de la flecha a la img*/
                 }
                 .categoria{
                 font-size:0.6rem;
@@ -214,13 +219,12 @@ Ajusta padding y tamaño de fuente para que todo encaje en pantallas pequeñas.*
                 opacity:0.7;
                 }
 
-
                 .un-vistazo {
                 display: flex;             
                 align-items: center;       /*centra verticalmente */
                 justify-content: flex-start; /* alinea flecha al inicio del link */
-                margin-top: 6px;       
-                margin-left: 30;
+                margin-top: 0.5rem;       
+                margin-bottom: 1rem;
                 }
                 
                   .flecha { /* más peque pero mantiene proporciones */

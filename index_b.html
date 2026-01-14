@@ -19,23 +19,24 @@
   
 <ul class="nav nav-tabs nav-apartados">
     <li class="nav-item"><a href="index_b.html" class="nav-link">garbo</a></li>
-    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#bio">bio</button></li>
-    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#archivo">archivo</button></li>
+    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#archivo">archivo</button></li> <!--como tiene el active, al iniciar la pagina se ve indice archivo-->
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#bio">bio</button></li>
 </ul>
 
 <div class="tab-content"> <!--este cacharro de bootstrap te èrmite hacer que el texto aparezca y desaparezca sin meterte a java, chachi-->
     <!--completa-->
-    <div class="tab-pane fade" id="archivo"> <!--esto sirve de indice, hace scroll hasta proyecto-->
+    <div class="tab-pane fade show active" id="archivo"> <!--esto sirve de indice, hace scroll hasta proyecto. SI NO TIENE SHOW ACTIVE SE VE ANTES BIO-->
         <ul>
             <li><a href="#nodo">[01] Nodo</a></li>
             <li><a href="#ludico">[02] Lúdico</a></li> 
-            <li><a href="#ludico">[03] Bitácora</a></li> 
+            <li><a href="#bitacora">[03] Bitácora</a></li> 
             <li><a href="#coxal">[04] Coxal</a></li>  
+            <li><a href="#coxal">[05] insights</a></li> 
         </ul>
     </div>
 
     <!--COMPLETA BIO-->
-    <div class="tab-pane fade show active" id="bio"> 
+    <div class="tab-pane fade" id="bio"> 
         <p>Texto largo de bio, editorial, tranquilo.</p>
     </div>
 </div>
@@ -67,7 +68,7 @@
         </div>
 
         <!-- derecha, proyectos -->
-        <div class="col-md-4 order-1 order-md-2 columna-proyectos">
+        <div class="col-md-4 order-1 order-md-2 columna-proyectos" ID="truquillo"> <!--pon este id en archivo para que nodo lleve arriba del todo? Nada, pasa lo mismo -->
 
         <!-- cada proyecto -->
         <div class="proyecto" id="nodo">
@@ -96,6 +97,64 @@
         </div> <!--proyecto nodo-->
 
         <!-- cada proyecto -->
+        <div class="proyecto" id="ludico">
+            <div class="row">
+                <div class="col-2 proyecto-numero">[02]</div>
+                <!-- contenido -->
+                    <div class="col-10">
+                        <div class="archivo-texto"> <!-- agrupa el texto a la derecha de la img + limita ancho-->
+                            <h2> LÚDICO <br>sistema expositivo modular </h2>
+                            <p> <!-- subtítulo, tipologia, cliente(?), -->
+                                tipologia/objeto<br>
+                                cliente/DIOR<br>
+                                en mayo, 2025 <br>
+                            <p>Un sistema modular que aborda la insostenibilidad del diseño expositivo para eventos
+                            efímeros dando una nueva vida a las lonas publicitarias de la Maison Dior.
+                            ¿cómo? aplicando el origami tradicional como estrategia constructiva
+                            para generar un sistema modular de volúmenes que se adaptan a las
+                            necesidades emergentes.
+                            </p>
+                            <a href="ludico.html" class="un-vistazo"> <!-- FLECHA, así puedes cambiar color o meter algun hover-->
+                                <svg class="flecha" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4L20 20M20 20V6M20 20H6" stroke="currentColor" stroke-width="2"/></svg>
+                            </a>
+                        <!-- silder fotitos?-->
+                            <div class="archivo-imagen">
+                                <img src="img2/IMG_2468-2.jpg" class="d-block w-100 blur-on-load"> <!--quieres que cargue blurry, pero a saber-->
+                        </div>
+                    </div>
+                </div> <!--col-->
+            </div> <!--row-->
+        </div> <!--proyecto ludico-->
+
+          <!-- cada proyecto -->
+        <div class="proyecto" id="bitacora">
+            <div class="row">
+                <div class="col-2 proyecto-numero">[03]</div>
+                <!-- contenido -->
+                    <div class="col-10">
+                        <div class="archivo-texto"> <!-- agrupa el texto a la derecha de la img + limita ancho-->
+                            <h2> BITÁCORA<br>archivo de técnicas de producción</h2>
+                            <p> <!-- subtítulo, tipologia, cliente(?), -->
+                                tipologiaeditorial, investigación<br>
+                                proyecto académico<br>
+                                en mayo, 2025 <br>
+                            <p>Desde el proceso de toma de decisiones en el Diseño y una aproximación práctica y ligera, integra
+                                las técnicas de producción en una estructura dinámica y directa: es un libro de esquemas
+                                plenamente orientado a la aplicación proyectual.
+                            </p>
+                            <a href="ludico.html" class="un-vistazo"> <!-- FLECHA, así puedes cambiar color o meter algun hover-->
+                                <svg class="flecha" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4L20 20M20 20V6M20 20H6" stroke="currentColor" stroke-width="2"/></svg>
+                            </a>
+                        <!-- silder fotitos?-->
+                            <div class="archivo-imagen">
+                                <img src="img2/bitácora/IMG_5953 GIF.GIF" class="d-block w-100 blur-on-load"> <!--quieres que cargue blurry, pero a saber-->
+                        </div>
+                    </div>
+                </div> <!--col-->
+            </div> <!--row-->
+        </div> <!--proyecto bitacora-->
+
+        <!-- cada proyecto -->
         <div class="proyecto" id="coxal">
             <div class="row">
                 <div class="col-2 proyecto-numero">[04]</div>
@@ -106,24 +165,47 @@
                             <p> <!-- subtítulo, tipologia, cliente(?), -->
                                 tipologia/objeto<br>
                                 proyecto académico<br>
-                                en junio, 2025 <br>
+                                en enero, 2025 <br>
                             <p>La morfología y conexiones de elementos del sistema óseo se transforman en piezas de joyería desde su mutación e interacción consigo mismas o con otras biológicamente compatibles. Con el modelado 3D como medio de exploración, convergencia y síntesis, nacen piezas que integran el biomorfismo a nivel funcional y conceptual eludiendo la referencialidad directa</p>
                             <a href="coxal.html" class="un-vistazo"> <!-- FLECHA, así puedes cambiar color o meter algun hover-->
                                 <svg class="flecha" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4L20 20M20 20V6M20 20H6" stroke="currentColor" stroke-width="2"/></svg>
                             </a>
                         <!-- silder fotitos?-->
                             <div class="archivo-imagen">
-                                <img src="img2/xal (2).gif" class="d-block w-100 blur-on-load">
-                            </div>
+                                <img src="img2/xal (2).gif" class="d-block w-100 blur-on-load"> <!--quieres que cargue blurry, pero a saber-->
                         </div>
-                    </div> <!--col-->
-                </div> <!--row-->
-            </div> <!--proyecto COXAL-->
+                    </div>
+                </div> <!--col-->
+            </div> <!--row-->
+        </div> <!--proyecto COXAL-->
 
-
-
-
-
+        <!-- cada proyecto -->
+        <div class="proyecto" id="insights">
+            <div class="row">
+                <div class="col-2 proyecto-numero">[05]</div>
+                <!-- contenido -->
+                    <div class="col-10">
+                        <div class="archivo-texto"> <!-- agrupa el texto a la derecha de la img + limita ancho-->
+                            <h2>INSIGHTS<br>reconquista del espacio público</h2>
+                            <p> <!-- subtítulo, tipologia, cliente(?), -->
+                                tipologia/investigación<br>
+                                proyecto académico<br>
+                                en mayo, 2023 <br>
+                            <p>Desde el proceso de toma de decisiones en el Diseño y una aproximación práctica y ligera, integra
+                                las técnicas de producción en una estructura dinámica y directa: es un libro de esquemas
+                                plenamente orientado a la aplicación proyectual.
+                            </p>
+                            <a href="ludico.html" class="un-vistazo"> <!-- FLECHA, así puedes cambiar color o meter algun hover-->
+                                <svg class="flecha" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 4L20 20M20 20V6M20 20H6" stroke="currentColor" stroke-width="2"/></svg>
+                            </a>
+                        <!-- silder fotitos?-->
+                            <div class="archivo-imagen">
+                                <img src="./img2/5_p.jpg" class="d-block w-100 blur-on-load"> <!--quieres que cargue blurry, pero a saber-->
+                        </div>
+                    </div>
+                </div> <!--col-->
+            </div> <!--row-->
+        </div> <!--proyecto ludico-->
 
     </div>
 </div> <!--fin container fluid-->

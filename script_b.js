@@ -20,12 +20,7 @@ archivoPanel.querySelectorAll('a').forEach(link => {
 
 
 
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   new bootstrap.Carousel(
     document.querySelector("#slidernodo"),
     {
@@ -33,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ride: "carousel"
     }
   );
-});
+});*/
 
 
 

@@ -26,9 +26,7 @@
             col-12 en móvil ocupa todo el ancho
             col-md-4 desde md (≥768px) ocupa 4/12
             order-1 en móvil va primero
-            order-md-2 en desktop pasa a segundo lugar 
-
-    gx controla el espacio horizontal entre columnas, PERO TU NECESITAS LOS MARGENES -->
+            order-md-2 en desktop pasa a segundo lugar  -->
     
     <ul class="nav-alternativo">
         <li class="nav-item"><a href="index_b.html" class="nav-link">garbo</a></li>
@@ -38,7 +36,7 @@
     <div class="container-fluid my-5 px-3"> <!--px-3 reduce padding horizontal interno de container, ESO era lo que te hacía el megamargen-->
 
             <!-- primera fila con dos columnas, una estrecha y otra más ancha con aire -->
-            <div class="row g-2" id="intro">
+            <div class="row g-1" id="intro">  <!--g ayuda a margen entre columnas!! -->
 
                 <!-- columna pequeña (imagen) quedrá arriba en movil-->
                 <div class="col-12 col-md-4 order-1 order-md-2"> <!--esto no influye en margen-->
@@ -50,7 +48,7 @@
                 </div>
 
                 <!-- columna grande (texto) -->
-                <div class="col-12 col-md-8 order-2 order-md-1 mi-columna" > 
+                <div class="col-12 col-md-8 order-2 order-md-1" > 
                     <div class="categoriza">
                         <p>
                             COXAL <br>
@@ -81,7 +79,6 @@
                 </div>
 
     </div>
-
     
 <!--concepto-->
     <div class="container-fluid my-5 px-3" Id="concepto">
@@ -92,13 +89,13 @@
                 </div>
 
                 <div class="col-12 col-md-4"> <!-- mide 450-->
-                    <img src="./img2/coxal/concepto/dibujillos.jpg" alt="concepto" class="zoom-img" width="350px">
+                    <img src="./img2/coxal/concepto/dibujillos.jpg" alt="concepto" class="zoom-img" width="400px">
                     <div id="overlay"><span id="close">&times;</span><img id="overlay-img" src="./img2/coxal/concepto/dibujillos.jpg"></div>
                 </div>
 
                 <div class="col-12 col-md-4"> <!--8+4=12-->
                     <div class="concepto-tx"> 
-                        <h1> El concepto</h1>
+                        <h1> el concepto</h1>
                         <p> 
                             Hay piezas de joyería que se convierten en “una parte más” de su portador,  
                             ¿que mejor recurso  que  transladar la estructura interna del cuerpo a las piezas que, en muchas ocasiones, 
@@ -123,28 +120,68 @@
     <div class="container-fluid my-5 px-3" id="proceso">
         <div class="row align-items-start" >
 
+            <div class="col-12 col-md-8 order-2 order-md-1 ">
+                <div class="proceso-explorar">
+                    <img src="./img2/coxal/explorar/2_exploracion_y_sintesisc.jpg" alt="concepto" width="450">
+                </div>
+            </div>
+
             <div class="col-12 col-md-4 order-1 order-md-2">
                 <div class="proceso-biblio"> 
-                    <img src="./img2/coxal/explorar/1_biblio_oseac.jpg" alt="proceso" class="zoom-img"> <!--margen sup 5 rem margen inf 3-->
-                    <div id="overlay"><span id="close">&times;</span><img id="overlay-img" src="./img2/coxal/explorar/1_biblio_oseac.jpg"></div>
-                    <div class="piefoto">
+                    <div class="proceso-txt">
+                        <h1>explorar</h1>
                         <p> Desde la biblioteca ósea, 
                         fuente de recusos formales y punto de partida  
                         exploración incial de mutaciones, operaciones 
                         e interacciones de los recursos biomorfos hasta 
-                        llegar a las formas unidad
+                        llegar a las formas unidad.
                         </p>
                     </div>
-                     <img src="./img2/coxal/explorar/c2_otra_mirada - copia.jpg" alt="proceso" width="800">
+                    <img src="./img2/coxal/explorar/1_biblio_oseac.jpg" alt="proceso" class="zoom-img"> <!--margen sup 5 rem margen inf 3-->
+                    <div id="overlay"><span id="close">&times;</span><img id="overlay-img" src="./img2/coxal/explorar/1_biblio_oseac.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+     <div class="container-fluid my-5 px-3" id="idear">
+        <div class="row align-items-start" >
+
+            <div class="col-12 col-md-4">
+                <div class="idear-general">
+                    <img src="./img2/coxal/idear/formas_ unidad_idearc.jpg" alt="idear" width="450">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="idear-expl">
+                        <b>a la izquierda-</b> conjunto de formas unidad, formas óseas sintetizadas y fácilmente manejables para conceptualizar e iterar<br>
+                        <b>en el centro -</b> formas unidad seleccionadas por sus posibilidades formales y compatibilidad <br>
+                        </b>a la derecha -</b> mutación de la forma a la pieza, la búsqueda de convergencia entre la forma ósea y factores funcionales, ergonómicos y antropométricos.
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="idear-biblio"> 
+                    <img src="./img2/coxal/idear/formas_unidad_txt _c.jpg" alt="proceso" wi> 
+                    <div class="idear-txt"> 
+                            <h1>mutación e interacción</h1>
+                            <p> 
+                                Del conjunto de formas unidad obtenido de la exploración se seleccionaron
+                                las con mayor potencial, que a través de la conceptualización e iteración derivaron en piezas [3]
+                                que nacen de la mutación e interacción formal.
+                            </p>
+
+                            <p> 
+                                Así se abordó el proceso creativo desde la síntesis de formas óseas en unidades sencillas que, desde la mutación 
+                                y la interacción, convergen en piezas que integran el biomorfismo e interconexiones 
+                                óseas a nivel formal y funcional
+                            </p>
+                    </div>
                 </div>
             </div>
            
 
-            <div class="col-12 col-md-8 order-2 order-md-1 mi-columna">
-                <div class="proceso-explorar">
-                    <img src="./img2/coxal/explorar/2_exploracion_y_sintesisc.jpg" alt="concepto" width="800">
-                </div>
-            </div>
 
         </div>
     </div> 

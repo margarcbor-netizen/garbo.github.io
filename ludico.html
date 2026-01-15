@@ -9,24 +9,6 @@
 </head >
 
 <body class= "ext-proyecto" id=ludico>
-
-    <!--<nav class="navbar" id="navP">
-        <a href="index.html" class="volver-inicio">garbo</a> enlace para volver a principal
-        <button id="archivoBtn">vuelta al archivo</button>  boton activa pestaña que desliza, NO quieres enlace a nueva página
-    </nav> -->
-
-    <!-- chuleta bootstrap = sistema basado en 12 columnas
-    .container define el ancho máximo y los márgenes laterales.
-    .row crea una fila horizontal.
-    .col-* divide esa fila en columnas. 
-    col-6 → ocupa 6/12 = la mitad col-8 + col-4 → una ancha y una estrecha (como tu referencia) col-4 col-4 col-4 → tres columnas iguales.
-    
-    cambia orden y tamaño según breakpoint (sm, md, lg, etc.) + si no especificas nada para movil, las columnas se apilan.
-    col-12 col-md-4 order-1 order-md-2"
-            col-12 en móvil ocupa todo el ancho
-            col-md-4 desde md (≥768px) ocupa 4/12
-            order-1 en móvil va primero
-            order-md-2 en desktop pasa a segundo lugar  -->
     
     <ul class="nav-alternativo">
         <li class="nav-item"><a href="index_b.html" class="nav-link">garbo</a></li>
@@ -113,9 +95,9 @@
         </div>
     </div> 
 
-     <!--concepto-->
-    <div class="container-fluid my-5 px-3" Id="solución">
-            <div class="row"> <!-- las dos-->
+     <!--solucion-->
+    <div class="container-fluid my-5 px-3" Id="solución"> <!--3 columnas, una vacía 2 con contenido-->
+            <div class="row"> 
                 
                 <div class="col-12 col-md-4">
                     <div class="solución-aire"> 
@@ -149,6 +131,44 @@
             </div>
     </div>
     
+    <div class="container-fluid my-5 px-3" id="proceso1">
+        <div class="row align-items-start" >
+
+            <div class="col-12 col-md-4">
+                <div class="proceso1a">
+                    <h1>el sistema</h1>
+                </div>
+                
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="ludico-proceso1b"> 
+                    <div class="proceso-txt">
+                        
+                        <h1> <b>el sistema expositivo,</b> una aplicación de la dinámica constructiva que ensalza productos de pequeño formato adaptándose a los contextos efímeros [2]</h1>
+                        <p> </b>un sistema de 4 piezas:</b> <br> 
+                            3 policubos altamente compatibles,<br>
+                            y un cuarto cubo a anexionar indistintamente <br>
+                            como ampliación o útil de almacenaje <br>
+                        </p>
+                         <img src="./img2/ludico/sistema_diagrama.png" alt="proceso" class="zoom-img"> <!--margen sup 5 rem margen inf 3-->
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="proceso1c">
+                    <img src="./img2/ludico/configuraciones_grid.png" alt="explorar">
+                    <div class="mas-pequeña">
+                        <img src="./img2/ludico/perfume2.jpg" alt="explorar">
+                        <p>redescubrir la semirigidez de la lona en capas plegadas y superpuestas =  equilibrio entre ligereza y resistencia estructual</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+
     
 
 
@@ -164,10 +184,11 @@
 
 
 <div id="modal" class="modal"> <!--esto es para zoom img-->
-        <span class="close">&times;</span><img class="modal-content" id="modal-img">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
 </div> 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"> </script> <!--link .js bootstrap-->
-    <script src="script.js"></script> 
+    <script src="script_b.js"></script> 
 </body>
 </html>

@@ -1,10 +1,15 @@
 
+/*nota: he intentado hacer de todo...la versioon anterior era más estimulante y si tenía cosillas de java,
+pero esta es mucho más sencialla. Me habría gustado meter algun slider pero me funci¡onan fatal (algo estaré haciendo mal) y también animaciones 
+de fade un asociada al scroll. NO ME SALE NADFA, SOCORRO*/
 
 const archivoBtn = document.getElementById('archivoBtn');
 const archivoPanel = document.getElementById('archivoPanel');
 const flowTrack = document.getElementById("flowTrack");
 const infoBar = document.querySelector("infoBar");
 const navbar = document.querySelector(".navbar");
+
+/* esto es del desplegable del archivo del antiguo documento*/
 
 archivoBtn.addEventListener('click', () => {
     archivoPanel.classList.toggle('desplegar');
@@ -19,18 +24,8 @@ archivoPanel.querySelectorAll('a').forEach(link => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*document.addEventListener("DOMContentLoaded", () => {
+/*carrousel en imagenes archivo, automático!!!
+document.addEventListener("DOMContentLoaded", () => {
   new bootstrap.Carousel(
     document.querySelector("#slidernodo"),
     {
@@ -40,13 +35,18 @@ archivoPanel.querySelectorAll('a').forEach(link => {
   );
 });*/
 
+/*sel = document.querySelector("#slidernodo"); este avanza con clic
+const instance = bootstrap.Carousel.getInstance(carousel);
+
+carousel.querySelectorAll(".carousel-click").forEach(img => {
+  img.addEventListener("click", () => {
+    instance.next();
+  });
+});*/
 
 
 
-
-
-
-/*zoom*/
+/*zoom intento. no funciona*/
 const overlay = document.getElementById('overlay');
 const overlayImg = document.getElementById('overlay-img');
 const close = document.getElementById('close');
@@ -63,19 +63,13 @@ close.addEventListener('click', () => {
   overlay.style.display = 'none';
 });
 
-// también cerrar al hacer clic fuera de la imagen
-overlay.addEventListener('click', (e) => {
+overlay.addEventListener('click', (e) => { /*cierra con clic fuera de la imagen*/
   if(e.target === overlay) {
     overlay.style.display = 'none';
   }
 });
 
-
-
-
-
-
-
+/*otro intento de efcto al cargar, nada SALE*/
 
 /*document.addEventListener("DOMContentLoaded", () => {
   // Selecciona cada imagen con efecto blur
@@ -98,19 +92,7 @@ overlay.addEventListener('click', (e) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /*al desplegar panel ocultar flow y info= pasando
-
 if (archivoPanel.classList.contains("desplegar")) {
       infoBar.classList.add("ocultar");  // se oculta infoBar
       flow.classList.add("oculto");      // se oculta carrusel
@@ -144,18 +126,9 @@ boton.addEventListener("click", () => {
 });*/
 
 
-/*proyectos*/
+/*proyectos*
 
-
-
-
-
-
-
-
-
-
-
+esto es un boton para subir, pero ñe
 /*const scrollBtn = document.getElementById("scrollBtn"); /*para subir arriba
 
 window.addEventListener("scroll", () => {

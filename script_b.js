@@ -1,40 +1,33 @@
 
 /*nota: he intentado hacer de todo...la versioon anterior era más estimulante y si tenía cosillas de java,
 pero esta es mucho más sencialla. Me habría gustado meter algun slider pero me funci¡onan fatal (algo estaré haciendo mal) y también animaciones 
-de fade un asociada al scroll. NO ME SALE NADFA, SOCORRO*/
+de fade un asociada al scroll. NO ME SALE NADFA, SOCORRO. Le pasa algo al index y no se que es, porque en los htmls de proyecto si funciona java. no se*/
 
 
 
 
+/*A VER SI FUNCIONA, POR FAVOR. me está ayudando chat porque yo estas sofisticaciones no las controlo
+vale, ya entiendo. no es que se anime al aparecer, sino que la animación lo coloca en su sitio cuando el elemento 
+está en un 15% del view port, y esa recolocación es el efecto. SOLO funciona en los otros HTML, pero en index NO*/
 
+const reveals = document.querySelectorAll('.reveal');
 
-/*mi cursor adaptado al movimiento del ratón. Funcionaba, pero no he logrado que el pointer desaparezca cuando hay que clicar*/
-const cursor = document.querySelector('.cursor');
-
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function animate() {
-  cursorX += (mouseX - cursorX) * 0.1;
-  cursorY += (mouseY - cursorY) * 0.1;
-  cursor.style.left = cursorX + 'px';
-  cursor.style.top = cursorY + 'px';
-  requestAnimationFrame(animate);
-}
-animate();
-
-
-
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible'); /*cuando entra en pantalla visibile avisa de que ya puede animarse?*/
+        /*unobserve solo anima una vez, no interesa*/
+        } else {
+        entry.target.classList.remove('visible'); /* quita la clase cuando el elemnto desaparece de pantalla, asique puede repetirse el efecto*/
+      }
+    });
+  },
+  {
+    threshold: 0.15
+  }
+);
+reveals.forEach(el => observer.observe(el));
 
 /*zoom intento. no funciona*/
           const overlay = document.getElementById('overlay');
@@ -98,6 +91,41 @@ animate();
               instance.next();
             });
           });
+
+  /*mi cursor adaptado al movimiento del ratón. Funcionaba, pero no he logrado que el pointer desaparezca cuando hay que clicar
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  cursorX += (mouseX - cursorX) * 0.1;
+  cursorY += (mouseY - cursorY) * 0.1;
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
+  requestAnimationFrame(animate);
+}
+animate();*/
+
+
+
+
+
+
+
+
+
+
 
 
 

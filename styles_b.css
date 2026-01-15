@@ -11,11 +11,11 @@ html, body {
   height: 100%;
 }
 
-body {
+/*body {
   cursor: none;
 }
 
-.cursor { /*OJO, tienes que quitar el pointer de donde esté si quieres esto*/
+.cursor { OJO, tienes que quitar el pointer de donde esté si quieres esto
   position: fixed;
   top: 0;
   left: 0;
@@ -552,7 +552,7 @@ Las intros (2 columnas) y el concepto (3 columnas) son siempre iguales, y el res
           font-size: 0.6rem;
           font-weight: 500;
           margin-top: 2rem;
-          max-width: 70%;
+          max-width: 85%;
           justify-self: end;
           text-align: end;
         }
@@ -568,8 +568,12 @@ se tiene que ver como un boton de vuelta al archivo*/
         .nav-alternativo {
           border-bottom: none;
           margin-bottom: 1rem;  /* espacio debajo del nav */
-          padding-left: 0;       /* ajusta padding horizontal del contenedor si quieres */
+          margin-right:3rem;
+          display: flex;
+          justify-content: flex-end; /* mueve a la derecha */
+          align-items: center;/* mantiene la misma altura */
         }
+      
                 .nav-alternativo .nav-link{ /*igual que el otro*, creo*/
                   border: none;
                   padding-left: 3rem;
@@ -586,6 +590,40 @@ se tiene que ver como un boton de vuelta al archivo*/
                   opacity: 1;
                   background: none;
                 }
+                .nav-link:hover {
+                  color: rgb(44, 144, 35); ;
+
+                }
+
+
+
+
+        
+ /*afecto para darle dinamismo- al hacer scroll los elementos que se 
+ cargan hacen pequeño movimiento y fade. no me funciona en index, si en otros html*/
+
+        .reveal {
+          opacity: 0;
+          transform: translateY(9px); /*leve movimiento hacia arriba*/
+          filter: blur(6px); /*borrosete, a ver que tal y sino fuera*/
+          transition: 0.5s ease-out; 
+            /*opacity 0.6s ease-out,
+            transform 0.6s ease-out,
+            filter 0.6s ease-out;*/
+        }
+
+        .reveal.visible {
+          opacity: 1; /*termina el fade!*/
+          transform: translateY(0); /*vuelve a su posicion*/
+          filter: blur(0); /*se quita el blur*/
+        }
+
+
+
+
+
+
+
 
 
 /*zoom imagenes- te funciona la primera parte, pero no la de overlay. tu intencion era que con clic 

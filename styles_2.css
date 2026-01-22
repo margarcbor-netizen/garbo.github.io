@@ -1,0 +1,622 @@
+
+body {
+    background-color: #ffffff;
+    @font-face {
+            font-family: Helvetica, sans-serif;
+            src: url(./fuente/Helvetica\ LT\ Std/) format('truetype');
+        }
+    }
+
+
+.intro-garbo {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    background: none;
+    font-size: 0.9rem;
+
+    margin-top: 1rem;
+    padding-left: 5rem; /*esto es margen*/
+    padding-right: 5rem; /*esto es margen*/
+    cursor: pointer;
+
+}
+/* navbar*/
+.navbar {
+    position: fixed;        /* se mantiene mientras haces scroll */
+    top: 32%;               /* mitad de la ventana */
+    width: 100%;
+    padding-top: 1rem ;
+    padding-left: 5rem; /*esto es margen*/
+    padding-right: 5rem; /*esto es margen*/
+
+    z-index: 100; /*arriba SIEMPRE*/
+    /*position: relative; /*si pones absolute se queda arriba */
+    /*top: 50; /*esto deberia dejarte bajarlo, pero no*/
+    transform: translateY(-38);
+    display: flex;
+    gap: 40px;
+    font-size: 24px;
+    transition: top 0.5s ease, transform 0.5s ease; /*transición suave al subir*/
+    z-index: 100;
+}
+
+#navbar.hidden { /*se aculta al scrollear para abajo*/
+  transform: translateY(-100%);
+}
+
+.navbar a {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.navbar button {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+          /*nav cambio a blanco contraste*/
+          body.archivo-desplegado .navbar button {
+            color: white;
+            font-weight: 500; /*cambia el peso porque bold en blanco es demasiado*/
+          }
+          body.archivo-desplegado .navbar a{
+            color: white;
+            font-weight: 500;
+          }
+
+
+/* clase que sube la navbar al abrir el panel */
+.navbar.arriba {
+  top:0;             /* se coloca en la parte superior */
+  transform: translateY(0); /* elimina el centrado vertical */
+}
+
+
+
+
+/*flow*/
+.flow {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  width: 100%; /* ocupa todo el ancho */
+  height: 400px; /* tamaño banda horizontal */
+  overflow: hidden;
+  z-index: 5;
+  padding-bottom: 90px;
+}
+
+.flow-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: scroll 30s linear infinite; /* su velocidad natural */
+}
+
+.flow-track img {
+  height: 100%;
+  width: auto;
+  /*margin-right: 3rem;*/
+  object-fit: cover;
+}
+
+/*al desplegar panel archivo (era para blurry, nada)
+    #flowTrack.oculto {
+    opacity: 0.1;   /* Si lo pones a 0 el efecto blurry no funciona, porque necesita algo detrás
+    pointer-events: none;
+    animation-play-state: paused;
+}*/
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/*archivo panel full*/
+#archivoPanel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+
+  background: #000000; /*no sabes si en blanco o negro*/
+  /*backdrop-filter: blur(10px); esta cosa mola mogollón, fondo "translucido" en lugar de opaco*/
+  color: #ffffff;
+
+  transform: translateY(100%);
+  transition: transform 0.6s ease;
+
+  overflow-y: auto;   /*ojo, SIN esto no hay barrita con scroll */
+}
+
+#archivoPanel.desplegar {
+  transform: translateY(0);
+}
+
+  .archivo-content { /*esto te permite poner el header y la columna tocha en paralelo*/
+    display: inline-flex;
+    margin-top: 8%;
+    padding: 0.2rem;
+  }
+  .archivo-header h1 {
+    display: flex;
+    margin-top: 8%;
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-left: 1.5rem;
+  }
+  .archivo-columna { /*conjunto items*/
+    display: flex;
+    flex-direction: column;
+    /*margin-top: 10%; aqui controlas margen respecto a nav si no pones texto sobre columna*/
+    /*padding: 0.2rem;*/
+  }
+  .archivo-proyecto { /*cada item*/
+    display: grid;
+    grid-template-columns: 300px auto; /* con esto cambias la distancia entre img y texto*/
+    gap: 10px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+          .archivo-imagen {   /*contiene img*/ 
+            width: 100%;
+            position: relative;
+          }
+        
+          .archivo-texto {  /*contiene texto*/
+          max-width:420px;
+          display: flex;             /* convierte el contenedor en flex */
+          flex-direction: column;    /* mantiene texto en columna, pero no te deja mover la flecha*/
+          Justify-content: space-between; /* CLAVE para separar */
+          height: 100%; /* opcional: para ocupar todo el alto del artículo */
+          position: relative;
+        }
+                /*.archivo-num { fuera, no me va
+                font-size:10px;
+                opacity:0.4;
+                }*/
+                .archivo-texto h2 {
+                font-size:12px;
+                font-weight:500;
+                line-height:1.4;
+                }
+                .archivo-texto p {
+                font-size:11px;
+                line-height:1.6;
+                opacity:0.7;
+                }
+                .un-vistazo {
+                display: flex;             
+                align-items: center;       /*centra verticalmente */
+                justify-content: flex-start; /* alinea flecha al inicio del link */
+                margin-top: 16px;       
+                margin-left: 30;
+                }
+                
+                  .flecha { /* más peque pero mantiene proporciones */
+                        color: #ffffff; 
+                        width: 16px; 
+                        height: 16px; 
+                  }
+                  .flecha:hover {
+                    opacity:0.6;
+                  }     
+                                             
+/*franja abajo*/             
+#infoBar {
+  background: #ffffff;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+
+  padding: 30;
+  z-index: 10; /* asi queda por debajo de panel cuando salga, ni ocultar ni ostias*/
+}
+
+          #infoBar p {
+            font-size: 11px;
+            line-height: 1.5;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #000000;
+          }
+
+          .info-left {
+            font-size: 11px;
+            padding-left: 5em;
+          }
+          .info-center {
+            max-width: 520px;
+            margin: 0 auto;
+            font-size: 11px;
+          }
+
+          .info-right {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
+            padding-right: 5em;
+
+          }
+          .info-left a {
+            color: inherit;
+            text-decoration: none;
+          }
+          .info-left a:hover {
+          opacity:0.6;
+          }
+
+
+
+
+/*proyectos*/
+
+.ext-royecto {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  overflow-y: auto;   /*ojo, SIN esto no hay barrita con scroll */ 
+}
+  
+
+#intro {
+  margin-top: 2.5rem;
+}
+.categoriza p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+.mega-img {
+  display: block;
+  width: 100%;
+  top: 0%;
+  height: auto;
+}
+.piefoto {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.esencial {
+  margin-top: 5rem;
+  line-height: 1.4;
+  /*gap: 2rem;
+  align-items: flex-start;*/
+  /*display: flex;
+  align-items: flex-start;
+  gap: 2rem; /* espacio entre texto y gif */
+}
+
+        .esencial h1 {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-top: 2rem;
+          line-height: 1.6;
+        }
+        .esencial p {
+          font-size: 1.2rem;
+          font-weight:500;
+          margin-top: 1rem;
+          margin-right: 5rem ;
+        }
+
+        /*.mega-gif {
+          width: 120px;
+          height: auto;
+          display: block;
+        }*/
+        
+
+
+.concepto-img { /*si pones zoom creo que no la usas*/
+    margin-top: 0rem;
+    width:100%;
+    height: auto;
+    position: relative;
+}
+.concepto-tx {
+max-width: 100%;
+position: relative;
+/*position:absolute; jode bootstrap*/
+margin-top: 2rem;
+line-height: 1.4;
+z-index: 10;
+
+}
+        .concepto-tx h1 {
+          font-size: 0.8rem;
+          font-weight:bold;
+        }
+
+        .concepto-tx p {
+          font-size: 0.8rem;
+          font-weight:500;
+          margin-top: 1.2rem;
+          /*text-align:left;*/
+          /*margin-right: 5rem;*/
+        }
+
+
+
+.proceso-biblio {
+  margin-top: 0rem;
+}
+      .proceso-biblio p {
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-top: 2rem;
+        margin-bottom: 15rem;
+      }
+
+      .proceso-biblio img {
+        max-width: 100%;
+      }
+
+.proceso-explorar {
+  max-width: 100%;
+}    
+      .proceso-explorar img {
+        max-width: 100%;
+
+      }   
+
+
+
+
+
+
+
+
+
+
+
+
+.zoom-img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.zoom-img:hover {
+  transform: scale(1.3);
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 200001; /* imagen encima del blur por narices */
+}
+
+#overlay-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0 20px black;
+}
+
+#close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+#navP {
+  position: relative;        /* se mantiene mientras haces scroll */
+  top: 38%;               /* mitad de la ventana */
+  left: 0;
+  width: 100%;
+  padding-left:7rem;
+  padding-right: 7rem;
+  padding-top: 3.5rem;
+  z-index: 100; /*arriba SIEMPRE*/
+  display: flex;
+  gap: 40px;
+  font-size: 24px;
+  transition: top 0.5s ease, transform 0.5s ease; /*transición suave al subir*/
+  z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#scrollBtn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#scrollBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*carrousel
+    .flow {
+    height: 100vh;
+    overflow: hidden;
+    }
+
+    .carousel {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    }
+
+    .carousel-track {
+    display: flex;
+    height: 100%;
+    width: max-content;
+    animation: scroll 20s linear infinite; /* esto es velocidad a la que deslizan sin interaccion
+    }
+
+    .carousel-track img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    }
+
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    } */
+
+/*archivo panel 1
+#archivoPanel {
+  position: fixed;
+  inset: 0;
+  background: white;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+  z-index: 1500;
+  padding: 6rem 3rem;
+}
+
+#archivoPanel.open {
+  transform: translateY(0);
+}
+
+#archivoPanel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#archivoPanel li {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*de los inicios*/
+
+/*
+.nav-bar {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 2%;
+    color: black;
+}*/
+
+
+/* footer*/
+footer {
+    font-size: 0.60rem;
+    letter-spacing: 0.5px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 2%;
+    color: black;
+}
+
+/*footer a:hover {
+  color: rgb(157, 161, 164);
+}*/

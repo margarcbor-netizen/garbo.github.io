@@ -7,573 +7,752 @@ body {
         }
     }
 
-
-.intro-garbo {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    color: black;
-    background: none;
-    font-size: 0.9rem;
-
-    margin-top: 1rem;
-    padding-left: 5rem; /*esto es margen*/
-    padding-right: 5rem; /*esto es margen*/
-    cursor: pointer;
-
-}
-/* navbar*/
-.navbar {
-    position: fixed;        /* se mantiene mientras haces scroll */
-    top: 32%;               /* mitad de la ventana */
-    width: 100%;
-    padding-top: 1rem ;
-    padding-left: 5rem; /*esto es margen*/
-    padding-right: 5rem; /*esto es margen*/
-
-    z-index: 100; /*arriba SIEMPRE*/
-    /*position: relative; /*si pones absolute se queda arriba */
-    /*top: 50; /*esto deberia dejarte bajarlo, pero no*/
-    transform: translateY(-38);
-    display: flex;
-    gap: 40px;
-    font-size: 24px;
-    transition: top 0.5s ease, transform 0.5s ease; /*transición suave al subir*/
-    z-index: 100;
-}
-
-#navbar.hidden { /*se aculta al scrollear para abajo*/
-  transform: translateY(-100%);
-}
-
-.navbar a {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    color: black;
-    background: none;
-    border: none;
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-.navbar button {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    color: black;
-    background: none;
-    border: none;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-          /*nav cambio a blanco contraste*/
-          body.archivo-desplegado .navbar button {
-            color: white;
-            font-weight: 500; /*cambia el peso porque bold en blanco es demasiado*/
-          }
-          body.archivo-desplegado .navbar a{
-            color: white;
-            font-weight: 500;
-          }
-
-
-/* clase que sube la navbar al abrir el panel */
-.navbar.arriba {
-  top:0;             /* se coloca en la parte superior */
-  transform: translateY(0); /* elimina el centrado vertical */
-}
-
-
-
-
-/*flow*/
-.flow {
-  position: fixed;
-  bottom:0;
-  left: 0;
-  width: 100%; /* ocupa todo el ancho */
-  height: 400px; /* tamaño banda horizontal */
-  overflow: hidden;
-  z-index: 5;
-  padding-bottom: 90px;
-}
-
-.flow-track {
-  display: flex;
-  width: max-content;
+html, body {
   height: 100%;
-  animation: scroll 30s linear infinite; /* su velocidad natural */
 }
 
-.flow-track img {
-  height: 100%;
-  width: auto;
-  /*margin-right: 3rem;*/
-  object-fit: cover;
+/*body {
+  cursor: none;
 }
 
-/*al desplegar panel archivo (era para blurry, nada)
-    #flowTrack.oculto {
-    opacity: 0.1;   /* Si lo pones a 0 el efecto blurry no funciona, porque necesita algo detrás
-    pointer-events: none;
-    animation-play-state: paused;
-}*/
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-/*archivo panel full*/
-#archivoPanel {
+.cursor { OJO, tienes que quitar el pointer de donde esté si quieres esto
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 20;
-
-  background: #000000; /*no sabes si en blanco o negro*/
-  /*backdrop-filter: blur(10px); esta cosa mola mogollón, fondo "translucido" en lugar de opaco*/
-  color: #ffffff;
-
-  transform: translateY(100%);
-  transition: transform 0.6s ease;
-
-  overflow-y: auto;   /*ojo, SIN esto no hay barrita con scroll */
-}
-
-#archivoPanel.desplegar {
-  transform: translateY(0);
-}
-
-  .archivo-content { /*esto te permite poner el header y la columna tocha en paralelo*/
-    display: inline-flex;
-    margin-top: 8%;
-    padding: 0.2rem;
-  }
-  .archivo-header h1 {
-    display: flex;
-    margin-top: 8%;
-    font-family: Helvetica, sans-serif;
-    font-weight: 500;
-    color: rgb(255, 255, 255);
-    font-size: 0.9rem;
-    text-decoration: none;
-    margin-left: 1.5rem;
-  }
-  .archivo-columna { /*conjunto items*/
-    display: flex;
-    flex-direction: column;
-    /*margin-top: 10%; aqui controlas margen respecto a nav si no pones texto sobre columna*/
-    /*padding: 0.2rem;*/
-  }
-  .archivo-proyecto { /*cada item*/
-    display: grid;
-    grid-template-columns: 300px auto; /* con esto cambias la distancia entre img y texto*/
-    gap: 10px;
-    padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-          .archivo-imagen {   /*contiene img*/ 
-            width: 100%;
-            position: relative;
-          }
-        
-          .archivo-texto {  /*contiene texto*/
-          max-width:420px;
-          display: flex;             /* convierte el contenedor en flex */
-          flex-direction: column;    /* mantiene texto en columna, pero no te deja mover la flecha*/
-          Justify-content: space-between; /* CLAVE para separar */
-          height: 100%; /* opcional: para ocupar todo el alto del artículo */
-          position: relative;
-        }
-                /*.archivo-num { fuera, no me va
-                font-size:10px;
-                opacity:0.4;
-                }*/
-                .archivo-texto h2 {
-                font-size:12px;
-                font-weight:500;
-                line-height:1.4;
-                }
-                .archivo-texto p {
-                font-size:11px;
-                line-height:1.6;
-                opacity:0.7;
-                }
-                .un-vistazo {
-                display: flex;             
-                align-items: center;       /*centra verticalmente */
-                justify-content: flex-start; /* alinea flecha al inicio del link */
-                margin-top: 16px;       
-                margin-left: 30;
-                }
-                
-                  .flecha { /* más peque pero mantiene proporciones */
-                        color: #ffffff; 
-                        width: 16px; 
-                        height: 16px; 
-                  }
-                  .flecha:hover {
-                    opacity:0.6;
-                  }     
-                                             
-/*franja abajo*/             
-#infoBar {
-  background: #ffffff;
-  color: black;
-  font-family: Helvetica, sans-serif;
-  font-weight: 600;
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;
-
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-
-  padding: 30;
-  z-index: 10; /* asi queda por debajo de panel cuando salga, ni ocultar ni ostias*/
-}
-
-          #infoBar p {
-            font-size: 11px;
-            line-height: 1.5;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: #000000;
-          }
-
-          .info-left {
-            font-size: 11px;
-            padding-left: 5em;
-          }
-          .info-center {
-            max-width: 520px;
-            margin: 0 auto;
-            font-size: 11px;
-          }
-
-          .info-right {
-            display: flex;
-            gap: 16px;
-            justify-content: flex-end;
-            padding-right: 5em;
-
-          }
-          .info-left a {
-            color: inherit;
-            text-decoration: none;
-          }
-          .info-left a:hover {
-          opacity:0.6;
-          }
-
-
-
-
-/*proyectos*/
-
-.ext-royecto {
-  font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.4;
-  overflow-y: auto;   /*ojo, SIN esto no hay barrita con scroll */ 
-}
-  
-
-#intro {
-  margin-top: 2.5rem;
-}
-.categoriza p {
-  font-size: 0.8rem;
-  font-weight: 500;
-  opacity: 0.6;
-}
-.mega-img {
-  display: block;
-  width: 100%;
-  top: 0%;
-  height: auto;
-}
-.piefoto {
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-}
-.esencial {
-  margin-top: 5rem;
-  line-height: 1.4;
-  /*gap: 2rem;
-  align-items: flex-start;*/
-  /*display: flex;
-  align-items: flex-start;
-  gap: 2rem; /* espacio entre texto y gif */
-}
-
-        .esencial h1 {
-          font-size: 1.2rem;
-          font-weight: bold;
-          margin-top: 2rem;
-          line-height: 1.6;
-        }
-        .esencial p {
-          font-size: 1.2rem;
-          font-weight:500;
-          margin-top: 1rem;
-          margin-right: 5rem ;
-        }
-
-        /*.mega-gif {
-          width: 120px;
-          height: auto;
-          display: block;
-        }*/
-        
-
-
-.concepto-img { /*si pones zoom creo que no la usas*/
-    margin-top: 0rem;
-    width:100%;
-    height: auto;
-    position: relative;
-}
-.concepto-tx {
-max-width: 100%;
-position: relative;
-/*position:absolute; jode bootstrap*/
-margin-top: 2rem;
-line-height: 1.4;
-z-index: 10;
-
-}
-        .concepto-tx h1 {
-          font-size: 0.8rem;
-          font-weight:bold;
-        }
-
-        .concepto-tx p {
-          font-size: 0.8rem;
-          font-weight:500;
-          margin-top: 1.2rem;
-          /*text-align:left;*/
-          /*margin-right: 5rem;*/
-        }
-
-
-
-.proceso-biblio {
-  margin-top: 0rem;
-}
-      .proceso-biblio p {
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin-top: 2rem;
-        margin-bottom: 15rem;
-      }
-
-      .proceso-biblio img {
-        max-width: 100%;
-      }
-
-.proceso-explorar {
-  max-width: 100%;
-}    
-      .proceso-explorar img {
-        max-width: 100%;
-
-      }   
-
-
-
-
-
-
-
-
-
-
-
-
-.zoom-img {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.zoom-img:hover {
-  transform: scale(1.3);
-}
-
-#overlay {
-  position: fixed;
-  display: none;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 200001; /* imagen encima del blur por narices */
-}
-
-#overlay-img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 5px;
-  box-shadow: 0 0 20px black;
-}
-
-#close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-}
-
-
-
-
-#navP {
-  position: relative;        /* se mantiene mientras haces scroll */
-  top: 38%;               /* mitad de la ventana */
-  left: 0;
-  width: 100%;
-  padding-left:7rem;
-  padding-right: 7rem;
-  padding-top: 3.5rem;
-  z-index: 100; /*arriba SIEMPRE*/
-  display: flex;
-  gap: 40px;
-  font-size: 24px;
-  transition: top 0.5s ease, transform 0.5s ease; /*transición suave al subir*/
-  z-index: 100;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#scrollBtn {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  padding: 0.6rem 0.8rem;
-  font-size: 1rem;
-  background: none;
-  border: 1px solid white;
-  color: white;
-  cursor: pointer;
-  opacity: 0;
+  width: 20px;
+  height: 20px;
+  background: rgb(44, 144, 35) ;
+  border: none;
+  border-radius: 50%;
   pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-#scrollBtn.show {
-  opacity: 1;
-  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }*/
 
+/*navBar archivo*/
 
+        .nav-apartados {
+          position: fixed; /*hay que fijar navbar para que no desaparezca con scroll, te fastidia el efecto*/
+          border-bottom: none; /*si lo quitas sale linea fea booptstrap*/
+          margin-bottom: 1rem;
+          z-index: 1000; /*z-index a lo bestia porque al poner fixed los 
+          botones dejaban de funcionar!! No se si son trampas pero funciona, YUPIIIIIIIIIII*/
+          
+          gap: 1.4rem; /*separación botones*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*carrousel
-    .flow {
-    height: 100vh;
-    overflow: hidden;
-    }
-
-    .carousel {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    }
-
-    .carousel-track {
-    display: flex;
-    height: 100%;
-    width: max-content;
-    animation: scroll 20s linear infinite; /* esto es velocidad a la que deslizan sin interaccion
-    }
-
-    .carousel-track img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    }
-
-    @keyframes scroll {
-        from {
-            transform: translateX(0);
         }
-        to {
-            transform: translateX(-50%);
+              .nav-apartados .nav-link{
+                border: none;
+                padding-left: 3rem;
+                padding-top: 2rem;
+              
+                font-family: Helvetica, sans-serif;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: black;
+                /*opacity: 0.6;*/
+              }
+              
+              .nav-item :hover{
+              color: rgb(44, 144, 35);
+              }
+
+
+        /* clic al boton hace que aparezca bio, si se le da al boton archivo bio desaparece*/
+              #bio {
+                position: fixed;
+                top: 12rem; /*para que esté más abajo, mejor composición*/
+                margin-top: 2rem;
+                padding: 3rem;
+                max-width: 550px; /*si pones solo widht te cargas el responsive*/
+
+                font-family: Helvetica, sans-serif;
+                font-size: 0.6rem;
+                color: black;
+
+                line-height: 1.5;
+                z-index: 10;
+                }
+                    .mar h1 {
+                    font-weight: bold;
+                    font-size: 0.6rem;
+                    color: rgb(44, 144, 35);
+                    }
+
+                    .mar p {
+                    font-weight: bold;
+                    color: rgb(44, 144, 35); /*no me convence, pero bueno*/
+                    }
+
+                    .mivision {
+                      color: #000000;
+                      font-weight: 600;
+                    }
+              
+        /*clic al botón y aparece indice que permite ir directamente a un proyecto forzano scroll del archivo*/
+              #archivo {
+                position: fixed;
+                top: 15rem; /*para que esté más abajo, mejor composición*/
+                margin-top: 2rem;
+                padding: 3rem;
+
+                font-family: Helvetica, sans-serif;
+                font-weight: 600;
+                font-size: 0.7rem;
+              }
+
+                    #archivo a {
+                      line-height: 1.8;
+                      text-decoration: none;
+                      color: #000000;
+                    }
+
+                    ul { /*quitar bullet points terribles*/
+                      list-style: none;
+                      padding-left: 0;
+                      margin: 0;
+                    }
+
+                    #archivo ul :hover { /*CON a no te funcioanaba, acuerdate para otras listas*/
+                      /*opacity: 0.6;*/
+                      color: rgb(44, 144, 35);
+                    }
+
+        /*desktop = nav permanece fijo (position: fixed) para que haya coherencia con el efecto de una sola columna con scroll
+        en móvil, vuelve a fluir en el documento?*/
+        @media (max-width: 768px) {
+              .nav-apartados {
+                position: static !important; /*hay que poner lo de important porque el fixed del css domina sobre
+                cualquier cosa que pongas boostrap o aqui*/
+                top: auto !important;
+                left: auto !important;
+                z-index: auto !important;
+                margin-bottom: 1rem;
+                flex-direction: row;
+                gap: 0.7rem;
+                justify-content: center;
+              }
+              .tab-content { /*agrupa archivo y bio, es bootstrap*/
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                width: 100% !important;
+                max-height: none !important;
+                overflow: visible !important;
+              }
+              .tab-pane { /*alude a bio y a archivo, madre mia vaya telita el bootstrap, DIOS*/
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                width: 100% !important;
+                max-height: none !important;
+                overflow: visible !important;
+              }
+              
+              .nav-apartados .nav-link, /* nueva composicion nav? CAMBIALÓ cuando pongas el volver al archivo*/ 
+              .volver-inicio {
+                padding: 0.5rem 0.7rem;
+                font-size: 0.7rem;
+              }  
+            }
+
+
+/*las dos columnas: izquierda con aire + efecto de que NO hay hay scroll, derecha contiene archivo y SI tiene scroll*/
+
+.row { /*poner esto fue una tontería, era lo que estaba haciendote los márgenes colosales y por lo que estuviste 
+  peleandote con bootstrap para corregir los margenes y solo tenias que haber quitado esto y haberlo dejado normal. Ya está hecho
+  y ahora todos lo márgenes y cosas raras que has hecho se basan en que esto esté, ASIQUE NO LO QUITES MAJA*/
+  padding-right:2rem;
+  padding-left: 2rem;
+}
+
+/*columna izquierda- intenté que NO tiuviera scroll y la derecha si, pero o no lo conseguí aun utilizando overflow hidden. 
+Mi apaño fue fijar los elementos en desktop para preservar el efcto y desfijarlos para que en el responsive esta columna quedara arriba 
+y la otra abjo + para adaptar los contenidos*/
+
+      .columna-aire {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          /*width: 20rem;  NO, impide cambio responsive*/ 
+          /*position: fixed; NO, entonces impide que se apile*/ 
+      }
+      /*footer fijo abajo en desktop, queda arriba en movil (no me ggusta, pero no me da la vida para apañarlo y que este en otro lugar*/             
+              .columna-aire footer {
+                position: fixed; /* no permite el responsive, PERO fija abajo. Con media queries o como se diga lo adaptas*/
+                bottom:0; /*esencial para que se quede abajo*/
+                margin-top: auto;
+                padding: 1rem 0; /* espacio arriba y abajo */
+
+                font-family: Helvetica, sans-serif;
+                font-weight: 600;
+                font-size: 0.6rem;
+                color: black;
+              }
+
+                      footer p {
+                        line-height: 1.5;
+                        max-width: 300px;
+                      }
+
+                      .footer-info {
+                        margin-top: 2rem;
+                      }
+
+                      .footer-info a {
+                        color: inherit;
+                        text-decoration: none;
+                      }
+
+                      .footer-info a:hover {
+                        /*opacity: 0.6; con esto quedaría gris, muy mono*/
+                        color: rgb(44, 144, 35);
+                      }
+                      
+                      .footer-guay {
+                        margin-top: 0.5rem;
+                      }
+
+/*columna derecha- es el archivo de proyectos. más estrecha para acentuar el efecto y que se note que es intencional + TIENE SCROLL. Contiene fichas de cada proyecto
+y los links para acceder al html de la expansion de cada uno. Mola que puedes navegar tu o usar el indice que despliegua el boton archivo para que la propia web fuerce el scroll y te lleve*/
+
+      .columna-proyectos {
+        position: relative; /* respecto a body */
+        align-content: end;
+        /*padding-top: 2rem; se lo puedes quitar porque está el del nav*/
+        margin-right:auto; /* ocupa hasta el borde derecho */
+        margin-top: 1rem;
+        margin-bottom: 0.9rem;
+
+        overflow-y: auto; /* esta SI scrollea... y al final la otra también (no te funciona overflow hidden asique has hecho una jugarreta, lo que toca por cabezona)  */
+
+        font-family: Helvetica, sans-serif;
+        color: black;
         }
-    } */
 
-/*archivo panel 1
-#archivoPanel {
-  position: fixed;
-  inset: 0;
-  background: white;
-  transform: translateY(100%);
-  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
-  z-index: 1500;
-  padding: 6rem 3rem;
-}
+        /*para que al navegar usando archivo quede espacio arriba 
+        y se preserve el margen top, sino es terrible y descuidado*/
+        .truquillo{ 
+        height: 35px; /*propio margen de proyecto para que el espacio entre proyecto y proyecto sea lo justo de amplio*/
+        }
 
-#archivoPanel.open {
-  transform: translateY(0);
-}
+              .proyecto {
+                /*margin-bottom: 3.5rem;*/
+                margin-bottom: 1.5rem; /*conviene reducirlo para que tampoco haya tanto espacio entre proyecto entre el margin y el truquillo*/
+              }
+              .proyecto-numero {
+                font-size: 0.7rem;
+                font-weight:bold;
+                color: rgb(44, 144, 35); /*molaría que solo se pusiera verde el que se selecciona en el indice archivo*/
+              }
+              .archivo-texto {  /*contiene texto de proyecto + img, pero los ajustes de la imagen están ya hechos desde clase de bootstrap d-block w-100*/
+                  max-width:400px; /*juega siempre con max para no cargarte el responsive*/
+                  display: flex; 
+                  flex-direction: column;
+                  position: relative;
+                  
+                  font-family: Helvetica, sans-serif; 
+                  height: 100%;   
+              }
+                        .archivo-texto h2 {
+                        font-size:0.7rem;
+                        font-weight:bold;
+                        line-height:1.4;
+                        margin-bottom: 0.5rem;
+                        }
+                        .archivo-texto p {
+                        font-size:0.6rem;
+                        line-height:1.4;
+                        opacity:0.7; /*queda mejor así, más ligero visualmente*/
+                        font-weight: bold;
+                        margin-bottom: 0.5rem; /*asi hay el mismo de la flecha al parrafo que de la flecha a la img*/
+                        }
+                        .categoria{
+                        font-size:0.6rem;
+                        line-height:1.4;
+                        opacity:0.7;
+                        }
 
-#archivoPanel ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+                        .un-vistazo { /*este chacharro es lo que contiene la flecha que lleva el link, NO la flecha como tal*/
+                        display: flex;             
+                        align-items: center; 
+                        justify-content: flex-start; 
+                        margin-top: 0.5rem;       
+                        margin-bottom: 1rem; 
+                        }
+                        
+                              .flecha { /* más peque pero mantiene proporciones */
+                                    color: #000000; 
+                                    width: 16px; 
+                                    height: 16px; 
+                              }
+                              .flecha:hover {
+                                /*opacity:0.6;*/
+                                color: rgb(44, 144, 35); /*sigues sin saber si te gusta o no, pero bueno*/
 
-#archivoPanel li {
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
-}*/
+                              }  
+                                    
+      
+                          
+        @media (max-width: 768px) { /*YA FUNCIONAAAAAA YUPI*/
+          .columna-aire {
+            min-height: auto;/* deja que crezca según contenido */
+            display: block;/*  no flex en móvil si quieres apilar */
+          }
+          .columna-aire footer {
+            position: static;/* ya no es fixed,  vuelve a flujo normal */
+            margin-top: 1rem;
+            bottom: auto;
+          }
+          .columna-proyectos {
+            margin-left: 0;/* para que ocupe todo el ancho debajo */
+            margin-top: 2rem; /* ajustar o asi? */
+          }
+                          
+                          }
+
+                          /*.carousel { fuera, no te gusta el efecto pero dejalo por si las mosquis
+                            max-width: 100%;
+                          }
+                          .carousel-item {
+                            height: auto;
+                            transition: transform 1.2s ease-in-out;
+                          }
+                          .carousel-item img {
+                            max-width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                          }
+                          .carousel-click {
+                            cursor: pointer;
+                          } */ 
+        
+/*proyectos= css para html de cada proyecto. la idea es que haya una especia de layout tipo y luego 
+implementar pequeñas variaciones según las necesidades de cada uno pero preservar cierta uniformidad. 
+Las intros (2 columnas) y el concepto (3 columnas) son siempre iguales, y el resto son variaciones de estos dos con pequeños ajustes*/
+
+/*DOS columnas, izq más ancha que der + incluye categorizacion, titulo, descripcion e img, IGUAL para todos*/
+        #intro {
+          margin-top: 2.5rem;
+        }
+                .categoriza p {
+                  font-size: 0.6rem;
+                  font-weight: 500;
+                  opacity: 0.6;
+                }
+                .mega-img { /*imagen cabecera*/
+                  display: block;
+                  width: 100%;
+                  top: 0%;
+                }
+                .piefoto {
+                  font-size: 0.6rem;
+                  font-weight: 500;
+                  margin-top: 0.5rem;
+                  margin-bottom: 2rem;
+                }
+                
+                .esencial {
+                  margin-top: 5rem;
+                  line-height: 1.4;
+                }
+                        .esencial h1 {
+                          font-size: 0.8rem;
+                          font-weight: bold;
+                          margin-top: 2rem;
+                          line-height: 1.6;
+                        }
+                        .esencial p {
+                          font-size: 0.8rem;
+                          font-weight:500;
+                          margin-top: 1rem;
+                          max-width: 45%;
+                        }
+
+                        /*.mega-gif {
+                          width: 120px;
+                          height: auto;
+                          display: block;
+                        }*/
+          
+        @media (max-width: 768px) {
+
+          .esencial {
+            margin-top: 0rem; /*en desktop lo separabas mucho de la categoría para que cuadradra con final img, pero ahora no tiene que cuadrar porque img pasa arriba*/
+          }
+          .esencial p {
+            max-width: 100%; /* ocupa todo el ancho de la columna, se quita el max-width que había establecido para maquetar desktop*/
+          }
+    
+          .contenedor-mega {
+            display: flex;
+            flex-direction: column; /* imagen arriba, texto debajo */
+            align-items: flex-end;  /*alienados derecha para guiño a maquetacion desktop */
+          }
+
+          .mega-img {
+            max-width: 70%;
+            margin-bottom: 0.5rem;
+          }
+
+          .piefoto {
+            text-align: right;
+              }
+          }
+
+
+/*row0 tres columnas, a con aire, b con imagen escalable, c con texto + vale para conceptos, solución lúdico y limitaciones nodo*/
+
+        .concepto-img { /*si pones zoom creo que no la usas*/
+            margin-top: 0rem;
+            width:85%;
+        }
+        .concepto-tx {
+        max-width: 100%;
+        position: relative;
+        /*position:absolute; rompe bootstrap*/
+        margin-top: 2rem;
+        line-height: 1.4;
+        z-index: 10;
+
+        }
+                .concepto-tx h1 {
+                  font-size: 0.8rem;
+                  font-weight:bold;
+                }
+
+                .concepto-tx p {
+                  font-size: 0.8rem;
+                  font-weight:500;
+                  margin-top: 1.2rem;
+                  /*text-align:left;*/
+                  /*margin-right: 5rem;*/
+                }
+
+
+/*exclusivo de lúdico, basado en intro pero al reves*/
+        .problema1a h1  {
+        font-size: 0.9rem;
+        font-weight: bold;
+        }
+
+        .problema1b {
+          margin-top: 0rem;
+          line-height: 1.4;
+        }
+              .problema1b h1 {
+                font-size: 0.8rem;
+                font-weight: bold;
+              }
+              .problema1b p {
+                font-size: 0.8rem;
+                font-weight: 500;
+                margin-top: 1.5rem;
+                max-width: 40%;
+              }
+              /*.problema1b img {
+                max-width: 85%;
+                margin-bottom: 2rem ;
+              }*/
+
+              .problema1b-txt img {
+                margin-top: 1.5em; /*mismo que el del top del parrafo que va debajo*/
+                max-width: 100%;
+                margin-bottom: 2rem ;
+                justify-content: left;
+              }
+
+
+/*row1 vale para coxal tres co lumnas, a con aire, b con texto y imagen escalable, c con imagen*/
+        .proceso1a h1  { /*esto pone titulo de sección, "proceso" u otra cosa*/
+        font-size: 0.9rem;
+        font-weight: bold;
+        z-index: 10000;
+        }
+
+        .proceso1b {
+          margin-top: 0rem;
+          line-height: 1.4;
+        }
+                .proceso1b h1 {
+                  font-size: 0.8rem;
+                  font-weight: bold;
+                }
+                .proceso1b p {
+                  font-size: 0.8rem;
+                  font-weight: 500;
+                  margin-top: 1.2rem;
+                  max-width: 85%; /*te justa más así que en el 100%, OJO que la img tiene que ser igual*/
+                }
+                .proceso1b img {
+                  max-width: 85%;
+                }
+
+        .proceso1c {
+          max-width: 100%;
+        }    
+                .proceso1c img {
+                  max-width: 100%;
+                }
+                /*de ludico, en 1c*/
+                .mas-pequeña {
+                  max-width: 100%;
+                  margin-top: 2rem; 
+                  justify-content: right;
+                  display: flex;
+                  align-items: flex-start; /*CLAVE para que pie foto se alinee con martgen sup*/
+                }
+                .mas-pequeña img {
+                  max-width: 50%;
+                  margin-right: 1.5rem;
+                  margin-bottom: 5rem;
+                }
+                .mas-pequeña p {
+                  font-size: 0.6rem;
+                  color: #000000;
+                  font-weight: 500;
+                }
+
+  /*adaptación proceso 1 para ludico*/
+        .ludico-proceso1b{
+          margin-top: 0rem;
+          line-height: 1.4;
+        }
+              .ludico-proceso1b h1 {
+                font-size: 0.8rem;
+                font-weight: 500;
+                max-width: 85%;
+                line-height: 1.4;
+                margin-bottom: 3rem;
+
+              }
+              .ludico-proceso1b p {
+                font-size: 0.6rem;
+                font-weight: 500;
+                margin-top: 1.2rem;
+                max-width: 85%;
+              }
+              .ludico-proceso1b img {
+                max-width: 85%;
+                margin-top:-5rem;
+                z-index:20
+              }
+
+
+  /*row2 2a nada porque suele ir vacía, pertenece al mismo apartado que lo anterior. cuando haya contenido ya pondras*/
+        .proceso2b img {
+            max-width: 85%;
+            margin-top: 1.5rem;
+          }
+        .proceso2b-txt {
+          margin-top:0rem;
+          line-height: 1.4;
+        }
+              .proceso2b-txt h1 {
+                font-size: 0.8rem;
+                font-weight: bold;
+              }
+              .proceso2b-txt p {
+                font-size: 0.8rem;
+                font-weight: 500;
+                margin-top: 1.2rem;
+                max-width: 85%;
+              }
+
+        .proceso2c img {
+            max-width: 100%;
+            margin-top: 1.8rem;
+          }
+        .piefoto2c {
+          font-size: 0.6rem;
+          font-weight: 500;
+          margin-top: 2rem;
+          max-width: 85%;
+          justify-self: end;
+          text-align: end;
+        }
+
+        .taraa1a {
+          margin-bottom: 5rem; /*margen abajo provisional para que no quede abrupto*/
+        }
+
+
+
+/*nav alternativo!! es el que aparece en los html de proyectos. mas que un nav, 
+se tiene que ver como un boton de vuelta al archivo*/
+        .nav-alternativo {
+          border-bottom: none;
+          margin-bottom: 1rem;  /* espacio debajo del nav */
+          margin-right:3rem;
+          display: flex;
+          justify-content: flex-end; /* mueve a la derecha */
+          align-items: center;/* mantiene la misma altura */
+        }
+      
+                .nav-alternativo .nav-link{ /*igual que el otro*, creo*/
+                  border: none;
+                  padding-left: 3rem;
+                  padding-top: 2rem;
+                
+                  font-family: Helvetica, sans-serif;
+                  font-size: 0.8rem;
+                  font-weight: 600;
+                  color: black;
+                  /*opacity: 0.6;*/
+                }
+
+                .nav-alternativo .nav-link.active {
+                  opacity: 1;
+                  background: none;
+                }
+                .nav-link:hover {
+                  color: rgb(44, 144, 35); ;
+
+                }
+
+
+
+
+        
+ /*afecto para darle dinamismo- al hacer scroll los elementos que se 
+ cargan hacen pequeño movimiento y fade. no me funciona en index, si en otros html
+ NO es compatible con el zoom img habrá que elegir cada vez*/
+
+        .reveal {
+          opacity: 0; /*al principio no se ve*/
+          transform: translateY(9px); /*leve movimiento hacia arriba*/
+          filter: blur(6px); /*borrosete, a ver que tal y sino fuera*/
+          transition: 0.5s ease-out;
+        }
+
+        .reveal.visible {
+          opacity: 1; /*termina el fade!*/
+          transform: translateY(0); /*vuelve a su posicion*/
+          filter: blur(0); /*se quita el blur*/
+        }
+
+
+
+
+
+
+
+
+
+/*zoom imagenes- te funciona la primera parte, pero no la de overlay. tu intencion era que con clic 
+se agrandara la img y hubiera fondo blurry, pero no funciona. de moemnto te quedas con la parte de zoom, 
+que hace todo un poco más dinámico escalando un poquitllo las imagenes */
+        .zoom-img {
+          cursor: pointer;
+          transition: transform 0.3s ease;
+        }
+        .zoom-img:hover {
+          transform: scale(1.22); /*cuanto quieres que escale?*/
+        }
+/*esto es lo que haría que la imagen se proyectara al medio+escalar+ fondo, pero no te está funcionando*/
+        #overlay {
+          position: fixed;
+          display: none;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          z-index: 200001; /* imagen encima del blur por narices*/      
+        }
+
+              #overlay-img {
+                max-width: 90%;
+                max-height: 90%;
+              }
+
+              #close { 
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                font-size: 40px;
+                color: white;
+                cursor: pointer;
+              }*/
+
+
+/* señal "en proceso" - no me ha dado tiempo a programar 
+todos los proyectos, pero algo había que poner*/
+
+      .ext-proyectoo body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+      }
+          .en-proceso { /*ojito porque te ha costado una barbaridad centrarlo*/
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+          }
+
+          .en-proceso img {
+              display: block;
+              max-width: 10vw; /*así es relativo a ventana*/
+              height: auto;
+          }
+
+
+
+
+/* imagenes se sobreponen hacen efecto de slider automático, me esta costando
+una barbaridad hacer slider con clic y no con botones y tampoco mne sale uno automático. 
+algo estaré haciendo mal porque lo he repetido mil veces no me sale JAJAJA*/
+      .fade-stack {
+        position: relative;
+        width: 100%;
+        height: 300px;  /*si quitas esto no se ve*/    
+        overflow: hidden; /*creo que no se veia porque la imagen era más grande y entonces bye bye*/
+        border: none;
+      }
+
+      .fade-stack img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: fade 12s infinite;
+      }
+
+      .fade-stack img:nth-child(1) { animation-delay: 0s; }
+      .fade-stack img:nth-child(2) { animation-delay: 2s; } /* 2s x imagen */
+      .fade-stack img:nth-child(3) { animation-delay: 4s; }
+      /*.fade-stack img:nth-child(4) { animation-delay: 6s; }
+      .fade-stack img:nth-child(5) { animation-delay: 8s; }
+      .fade-stack img:nth-child(6) { animation-delay: 10s; }
+      .fade-stack img:nth-child(7) { animation-delay: 12s; }*/
+
+      @keyframes fade {
+        0%   { opacity: 0; }
+        10%  { opacity: 1; }
+        30%  { opacity: 1; }
+        40%  { opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+
+    /*efecto con scroll? NO VA*/
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
 
 
@@ -595,28 +774,47 @@ z-index: 10;
 
 
 
-/*de los inicios*/
-
-/*
-.nav-bar {
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 15px;
-    margin: 2%;
-    color: black;
-}*/
 
 
-/* footer*/
-footer {
-    font-size: 0.60rem;
-    letter-spacing: 0.5px;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    margin: 2%;
-    color: black;
-}
 
-/*footer a:hover {
-  color: rgb(157, 161, 164);
-}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
